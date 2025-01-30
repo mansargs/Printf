@@ -6,20 +6,18 @@
 /*   By: mansargs <mansargs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:44:58 by mansargs          #+#    #+#             */
-/*   Updated: 2025/01/29 21:47:16 by mansargs         ###   ########.fr       */
+/*   Updated: 2025/01/30 22:39:18 by mansargs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putstr(const char *s, int *count)
+int	ft_putstr(const char *s)
 {
 	int	i;
 
 	i = -1;
 	while (s[++i])
-	{
 		write(1, s + i, 1);
-		++*count;
-	}
+	return (i);
 }

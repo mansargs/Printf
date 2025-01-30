@@ -3,8 +3,8 @@ NAME = libftprintf.a
 CC = cc
 WFLAGS = -Wall -Wextra -Werror
 
-SOURCE = ft_count_char.c ft_itoa_unsigned.c ft_itoa.c ft_print_address.c ft_print_hex.c ft_printf.c \
-		ft_putchar.c ft_putstr.c
+SOURCE = ft_hex_char.c ft_print_address.c ft_print_hex.c ft_printf.c \
+		ft_putchar.c ft_putstr.c ft_putnbr.c
 OBJECT = $(SOURCE:.c=.o)
 
 HEADER = ft_printf.h

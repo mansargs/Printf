@@ -6,25 +6,26 @@
 /*   By: mansargs <mansargs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:51:24 by mansargs          #+#    #+#             */
-/*   Updated: 2025/01/29 21:47:28 by mansargs         ###   ########.fr       */
+/*   Updated: 2025/01/30 22:55:57 by mansargs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 //#include <stdio.h>
 
-void	ft_print_address(void *p, int *count)
+int	ft_print_address(void *p)
 {
 	size_t	nb;
 	int		len;
 	char	*hex;
 	int		mod;
+	int		count;
 
 	nb = (size_t)p;
-	len = ft_count_char(nb) + 2;
+	len = ft_hex_char(nb) + 2;
 	hex = (char *)malloc((len + 1) * sizeof(char));
 	if (!hex)
-		return ;
+		return (-1);
 	hex[0] = '0';
 	hex[1] = 'x';
 	hex[len] = '\0';
@@ -37,8 +38,9 @@ void	ft_print_address(void *p, int *count)
 			hex[len] = mod + 48;
 		nb /= 16;
 	}
-	ft_putstr(hex,count);
+	count = ft_putstr(hex);
 	free(hex);
+	return (count);
 }
 /*
 int main ()

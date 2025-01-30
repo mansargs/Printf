@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mansargs <mansargs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/28 16:31:28 by mansargs          #+#    #+#             */
-/*   Updated: 2025/01/29 20:51:18 by mansargs         ###   ########.fr       */
+/*   Created: 2025/01/30 21:41:19 by mansargs          #+#    #+#             */
+/*   Updated: 2025/01/30 22:48:41 by mansargs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
-static int	count_char(unsigned int num)
+int	count_char(long num)
 {
 	int	len;
 
 	len = 1;
+	if (num < 0)
+		++len;
 	while (num / 10)
 	{
 		num /= 10;
@@ -25,44 +28,48 @@ static int	count_char(unsigned int num)
 	return (len);
 }
 
-static int	minus_case(char *str, int *len, int *num)
+void	fill(char *str, long num, int len)
 {
 	int	limit;
 
 	limit = 0;
-	if (*num < 0)
+	str[len] = '\0';
+	if (num < 0)
 	{
-		*str = '-';
+		str[0] = '-';
 		limit = 1;
-		if (*num == -2147483648)
-		{
-			*num = (*num + 1) * -1;
-			*(str + --(*len)) = '8';
-			*num /= 10;
-		}
-		else
-			*num *= -1;
+		num = -num;
 	}
-	return (limit);
+	while (--len >= limit)
+	{
+		str[len] = (num % 10) + '0';
+		num /= 10;
+	}
 }
 
-char	*ft_itoa(int num)
+int	ft_putnbr(long num)
 {
-	int		len;
 	char	*str;
-	int		limit;
+	int		i;
+	int		len;
 
+	i = 0;
 	len = count_char(num);
 	str = (char *)malloc((len + 1) * sizeof(char));
-	if (str == NULL)
-		return (NULL);
-	*(str + len) = '\0';
-	limit = minus_case(str, &len, &num);
-	while (len > limit)
-	{
-		*(str + len - 1) = (num % 10) + '0';
-		num = num / 10;
-		--len;
-	}
-	return (str);
+	if (!str)
+		return (-1);
+	fill(str, num, len);
+	len = ft_putstr(str);
+	free (str);
+	return (len);
 }
+/*
+#include <stdio.h>
+
+int main ()
+{
+	printf("len is ------>%d\n", ft_putnbr(-33423));
+	system("leaks a.out");
+	return (0);
+}
+*/

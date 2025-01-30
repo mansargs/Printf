@@ -6,7 +6,7 @@
 /*   By: mansargs <mansargs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:38:26 by mansargs          #+#    #+#             */
-/*   Updated: 2025/01/29 22:01:01 by mansargs         ###   ########.fr       */
+/*   Updated: 2025/01/30 22:53:50 by mansargs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,38 @@
 
 static int	swich_case(char c, va_list args, int *count)
 {
-	char	*str;
+	int len;
 
 	if (c == 'c')
-		ft_putchar(va_arg(args, int), count);
+		*count += ft_putchar(va_arg(args, int));
 	else if (c == 's')
-		ft_putstr(va_arg(args, char *), count);
+	{
+		*count += ft_putstr(va_arg(args, char *));
+	}
+
 	else if (c == 'p')
-		ft_print_address(va_arg(args, void *), count);
+		*count += ft_print_address(va_arg(args, void *));
 	else if (c == 'd' || c == 'i')
 	{
-		str = ft_itoa(va_arg(args, int));
-		ft_putstr(str, count);
-		free (str);
+		len = ft_putnbr(va_arg(args, int));
+		if (len == -1)
+			return (-1);
+		*count += len;
 	}
 	else if (c == 'u')
 	{
-		str = ft_itoa_unsigned(va_arg(args, unsigned int));
-		ft_putstr(str, count);
-		free (str);
+		len = ft_putnbr(va_arg(args, unsigned int));
+		if (len == -1)
+			return (-1);
+		*count += len;
 	}
 	else if (c == 'x' || c == 'X')
-		ft_print_hex(va_arg(args, unsigned int), c, count);
+		*count += ft_print_hex(va_arg(args, unsigned int), c);
 	else if (c == '%')
+	{
 		write(1,"%", 1);
+		++*count;
+	}
 	else
 		return (-1);
 	return (0);
@@ -56,7 +64,7 @@ int ft_printf(const char *s, ...)
 	{
 		while (s[i] != '%' && s[i])
 		{
-			ft_putchar(s[i], &count);
+			count += ft_putchar(s[i]);
 			++i;
 		}
 		if (s[i] == '%')
@@ -82,8 +90,9 @@ int ft_printf(const char *s, ...)
 
 int main ()
 {
-	printf("printf result is ----->%d\n", printf("%s is\t", "Hello"));
-	ft_printf("ft_printf result is ----->%d\n", ft_printf("%s is\t", "Hello"));
+	printf("printf result is ----->%d\n", printf("%x is\t", 0));
+	ft_printf("ft_printf result is ----->%d\n", ft_printf("%x is\t", 0));
 	return (0);
+
 }
 */

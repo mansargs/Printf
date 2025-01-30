@@ -6,14 +6,14 @@
 /*   By: mansargs <mansargs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:42:17 by mansargs          #+#    #+#             */
-/*   Updated: 2025/01/29 21:47:09 by mansargs         ###   ########.fr       */
+/*   Updated: 2025/01/30 17:52:15 by mansargs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar(const char c, int *count)
+int	ft_putchar(const char c)
 {
 	write(1, &c, 1);
-	++*count;
+	return (1);
 }
