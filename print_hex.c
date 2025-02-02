@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_hex.c                                     :+:      :+:    :+:   */
+/*   print_hex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mansargs <mansargs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 18:41:56 by mansargs          #+#    #+#             */
-/*   Updated: 2025/01/30 22:56:18 by mansargs         ###   ########.fr       */
+/*   Updated: 2025/02/02 19:21:42 by mansargs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "printf.h"
 #include <stdio.h>
 
-int	ft_print_hex(unsigned int num, char c)
+int	print_hex(unsigned int num, char c)
 {
 	int		len;
 	char	*hex;
 	int		mod;
 
-	if (c =='x')
+	if (c == 'x')
 		c = 87;
 	else
 		c = 55;
-	len = ft_hex_char(num);
+	len = count_hex_len(num);
 	hex = (char *)malloc((len + 1) * sizeof(char));
 	if (!hex)
 		return (-1);

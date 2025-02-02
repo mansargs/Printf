@@ -3,11 +3,11 @@ NAME = libftprintf.a
 CC = cc
 WFLAGS = -Wall -Wextra -Werror
 
-SOURCE = ft_hex_char.c ft_print_address.c ft_print_hex.c ft_printf.c \
-		ft_putchar.c ft_putstr.c ft_putnbr.c
+SOURCE = count_hex_len.c print_pointer.c print_hex.c ft_printf.c \
+		print_symbol.c print_string.c print_number.c
 OBJECT = $(SOURCE:.c=.o)
 
-HEADER = ft_printf.h
+HEADER = printf.h
 
 AR = ar
 ARFLAGS = -rcs

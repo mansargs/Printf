@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   print_number.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mansargs <mansargs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 21:41:19 by mansargs          #+#    #+#             */
-/*   Updated: 2025/01/30 22:48:41 by mansargs         ###   ########.fr       */
+/*   Updated: 2025/02/02 18:53:57 by mansargs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "printf.h"
 #include <stdio.h>
 
-int	count_char(long num)
+static int	count_char(long num)
 {
 	int	len;
 
@@ -28,7 +28,7 @@ int	count_char(long num)
 	return (len);
 }
 
-void	fill(char *str, long num, int len)
+static void	fill(char *str, long num, int len)
 {
 	int	limit;
 
@@ -47,7 +47,7 @@ void	fill(char *str, long num, int len)
 	}
 }
 
-int	ft_putnbr(long num)
+int	print_number(long num)
 {
 	char	*str;
 	int		i;

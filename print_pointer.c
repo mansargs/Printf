@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_address.c                                 :+:      :+:    :+:   */
+/*   print_pointer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mansargs <mansargs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:51:24 by mansargs          #+#    #+#             */
-/*   Updated: 2025/01/30 22:55:57 by mansargs         ###   ########.fr       */
+/*   Updated: 2025/02/02 19:21:21 by mansargs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "printf.h"
 //#include <stdio.h>
 
-int	ft_print_address(void *p)
+static void fill(char *hex, int len, size_t nb)
 {
-	size_t	nb;
-	int		len;
-	char	*hex;
-	int		mod;
-	int		count;
+	int	mod;
 
-	nb = (size_t)p;
-	len = ft_hex_char(nb) + 2;
-	hex = (char *)malloc((len + 1) * sizeof(char));
-	if (!hex)
-		return (-1);
 	hex[0] = '0';
 	hex[1] = 'x';
 	hex[len] = '\0';
@@ -38,10 +29,26 @@ int	ft_print_address(void *p)
 			hex[len] = mod + 48;
 		nb /= 16;
 	}
-	count = ft_putstr(hex);
+}
+
+int	print_pointer(void *p)
+{
+	size_t	nb;
+	int		len;
+	char	*hex;
+	int		count;
+
+	nb = p;
+	len = hex_char(nb) + 2;
+	hex = (char *)malloc((len + 1) * sizeof(char));
+	if (!hex)
+		return (-1);
+	fill(hex, len, nb);
+	count = print_string(hex);
 	free(hex);
 	return (count);
 }
+
 /*
 int main ()
 {

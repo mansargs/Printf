@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hex_char.c                                      :+:      :+:    :+:   */
+/*   print_symbol.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mansargs <mansargs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/27 18:17:29 by mansargs          #+#    #+#             */
-/*   Updated: 2025/01/30 22:03:24 by mansargs         ###   ########.fr       */
+/*   Created: 2025/01/27 17:42:17 by mansargs          #+#    #+#             */
+/*   Updated: 2025/02/02 17:25:32 by mansargs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "printf.h"
 
-int	ft_hex_char(size_t num)
+int	print_symbol(const char c)
 {
-	int	len;
-
-	len = 1;
-	while (num / 16)
-	{
-		num /= 16;
-		++len;
-	}
-	return (len);
+	write(1, &c, 1);
+	return (1);
 }
