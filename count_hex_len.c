@@ -6,13 +6,13 @@
 /*   By: mansargs <mansargs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 18:17:29 by mansargs          #+#    #+#             */
-/*   Updated: 2025/02/02 19:17:58 by mansargs         ###   ########.fr       */
+/*   Updated: 2025/02/02 19:46:03 by mansargs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-int	count_hex_char(size_t num)
+int	count_hex_len(size_t num)
 {
 	int	len;
 

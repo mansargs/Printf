@@ -6,14 +6,13 @@
 /*   By: mansargs <mansargs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:51:24 by mansargs          #+#    #+#             */
-/*   Updated: 2025/02/02 19:21:21 by mansargs         ###   ########.fr       */
+/*   Updated: 2025/02/02 21:17:32 by mansargs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
-//#include <stdio.h>
+#include "ft_printf.h"
 
-static void fill(char *hex, int len, size_t nb)
+static void	fill(char *hex, int len, size_t nb)
 {
 	int	mod;
 
@@ -38,8 +37,8 @@ int	print_pointer(void *p)
 	char	*hex;
 	int		count;
 
-	nb = p;
-	len = hex_char(nb) + 2;
+	nb = (size_t)p;
+	len = count_hex_len(nb) + 2;
 	hex = (char *)malloc((len + 1) * sizeof(char));
 	if (!hex)
 		return (-1);

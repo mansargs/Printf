@@ -6,11 +6,11 @@
 /*   By: mansargs <mansargs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:42:17 by mansargs          #+#    #+#             */
-/*   Updated: 2025/02/02 17:25:32 by mansargs         ###   ########.fr       */
+/*   Updated: 2025/02/02 19:46:48 by mansargs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	print_symbol(const char c)
 {

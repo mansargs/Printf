@@ -6,11 +6,11 @@
 /*   By: mansargs <mansargs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 21:41:19 by mansargs          #+#    #+#             */
-/*   Updated: 2025/02/02 18:53:57 by mansargs         ###   ########.fr       */
+/*   Updated: 2025/02/02 19:58:11 by mansargs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 #include <stdio.h>
 
 static int	count_char(long num)
@@ -59,7 +59,7 @@ int	print_number(long num)
 	if (!str)
 		return (-1);
 	fill(str, num, len);
-	len = ft_putstr(str);
+	len = print_string(str);
 	free (str);
 	return (len);
 }
@@ -68,7 +68,7 @@ int	print_number(long num)
 
 int main ()
 {
-	printf("len is ------>%d\n", ft_putnbr(-33423));
+	printf("len is ------>%d\n", print_number(-33423));
 	system("leaks a.out");
 	return (0);
 }

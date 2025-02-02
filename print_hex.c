@@ -6,12 +6,11 @@
 /*   By: mansargs <mansargs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 18:41:56 by mansargs          #+#    #+#             */
-/*   Updated: 2025/02/02 19:21:42 by mansargs         ###   ########.fr       */
+/*   Updated: 2025/02/02 19:46:24 by mansargs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
-#include <stdio.h>
+#include "ft_printf.h"
 
 int	print_hex(unsigned int num, char c)
 {
@@ -37,7 +36,7 @@ int	print_hex(unsigned int num, char c)
 			hex[len] = mod + 48;
 		num /= 16;
 	}
-	len = ft_putstr(hex);
+	len = print_string(hex);
 	free(hex);
 	return (len);
 }

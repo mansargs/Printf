@@ -7,7 +7,7 @@ SOURCE = count_hex_len.c print_pointer.c print_hex.c ft_printf.c \
 		print_symbol.c print_string.c print_number.c
 OBJECT = $(SOURCE:.c=.o)
 
-HEADER = printf.h
+HEADER = ft_printf.h
 
 AR = ar
 ARFLAGS = -rcs
