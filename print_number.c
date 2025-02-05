@@ -6,12 +6,11 @@
 /*   By: mansargs <mansargs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 21:41:19 by mansargs          #+#    #+#             */
-/*   Updated: 2025/02/02 19:58:11 by mansargs         ###   ########.fr       */
+/*   Updated: 2025/02/03 19:46:00 by mansargs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 static int	count_char(long num)
 {
