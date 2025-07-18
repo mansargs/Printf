@@ -62,7 +62,7 @@ int main() {
 
 Compile and link:
 ```sh
-gcc main.c -L. -lftprintf -o main
+cc main.c -L. -lftprintf -o main
 ```
 
 ## Author
